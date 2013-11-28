@@ -1,0 +1,388 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>Federal Highway Administration</origin>
+        <origin>Research and Innovative Technology Administration's Bureau of Transportation Statistics</origin>
+        <pubdate>20110101</pubdate>
+        <title>Metropolitan Planning Organization (MPO)</title>
+        <geoform>vector digital data</geoform>
+        <onlink>http://www.bts.gov/programs/geographic_information_services/</onlink>
+        <lworkcit>
+          <citeinfo>
+            <origin>Research and Innovative Technology Administration's Bureau of Transportation Statistics</origin>
+            <pubdate>20110101</pubdate>
+            <title>National Transportation Atlas Database (NTAD) 2013</title>
+            <geoform>vector digital data</geoform>
+            <pubinfo>
+              <pubplace>Washington, DC</pubplace>
+              <publish>Research and Innovative Technology Administration's Bureau of Transportation Statistics</publish>
+            </pubinfo>
+            <onlink>http://www.bts.gov/programs/geographic_information_services/</onlink>
+          </citeinfo>
+        </lworkcit>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The United States Metropolitan Planning Organization database is a geographic database of Metropolitan Planning Organization political boundaries.</abstract>
+      <purpose>The data provides users with information about the locations, names and sizes of Metropolitan Planning Organizations and is intended for use primarily with national planning applications.</purpose>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <sngdate>
+          <caldate>20110101</caldate>
+        </sngdate>
+      </timeinfo>
+      <current>publication date</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>Annually</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-178.339504</westbc>
+        <eastbc>-65.589823</eastbc>
+        <northbc>64.920889</northbc>
+        <southbc>17.926705</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>polygons</themekt>
+        <themekey>metropolitan</themekey>
+        <themekey>polygon</themekey>
+        <themekey>MPO</themekey>
+        <themekey>region</themekey>
+        <themekey>planning agency</themekey>
+        <themekey>study area</themekey>
+        <themekey>transportation</themekey>
+        <themekey>planning commission</themekey>
+        <themekey>Agency</themekey>
+        <themekey>Council of Governments</themekey>
+        <themekey>municipal</themekey>
+        <themekey>regional</themekey>
+        <themekey>organization</themekey>
+        <themekey>planning</themekey>
+        <themekey>COG</themekey>
+      </theme>
+      <theme>
+        <themekt>ISO 19115 Topic Categories</themekt>
+        <themekey>transportation</themekey>
+        <themekey>planningCadastre</themekey>
+      </theme>
+      <place>
+        <placekt>None</placekt>
+        <placekey>planning</placekey>
+        <placekey>US</placekey>
+      </place>
+      <temporal>
+        <tempkt>None</tempkt>
+        <tempkey>2008</tempkey>
+        <tempkey>2011</tempkey>
+        <tempkey>2007</tempkey>
+        <tempkey>2010</tempkey>
+        <tempkey>2009</tempkey>
+        <tempkey>2012</tempkey>
+        <tempkey>2013</tempkey>
+      </temporal>
+    </keywords>
+    <accconst>None</accconst>
+    <useconst>Acknowledgement of the Research and Innovative Technology Administration's Bureau of Transportation Statistics (RITA/BTS) National Transportation Atlas Databases (NTAD) 2013 would be appreciated in products derived from these data.</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>Federal Highway Administration, Office of Planning, Environment, &amp; Realty</cntorg>
+          <cntper>Supin Yoder</cntper>
+        </cntorgp>
+        <cntpos>Travel Demand Forecasting and GIS Specialist</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>1200 New Jersey Ave. SE</address>
+          <city>Washington</city>
+          <state>DC</state>
+          <postal>20590</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>708-283-3554</cntvoice>
+        <cntfax>708-283-3501</cntfax>
+        <cntemail>supin.yoder@dot.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+    <ptcontac>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>Research and Innovative Technology Administration's Bureau of Tranportation Statistics (RITA/BTS)</cntorg>
+          <cntper>Office of Geospatial Information Systems</cntper>
+        </cntorgp>
+        <cntpos>NTAD 2013</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>1200 New Jersey Ave. SE</address>
+          <city>Washington</city>
+          <state>DC</state>
+          <postal>20590</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>202 366 DATA</cntvoice>
+        <cntemail>answers@bts.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+    <datacred>The Research and Innovative Technology Administration's Bureau of Transportation Statistics and the Federal Highway Administration.</datacred>
+    <secinfo>
+      <secclass>Unclassified</secclass>
+    </secinfo>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.0.3035</native>
+    <crossref>
+      <citeinfo>
+        <origin>Research and Innovative Technology Administration's Bureau of Transportation Statistics (RITA/BTS)</origin>
+        <pubdate>20110101</pubdate>
+        <title>National Transportation Atlas Database (NTAD) 2013</title>
+        <geoform>vector digital data</geoform>
+        <pubinfo>
+          <pubplace>Washinton, DC</pubplace>
+          <publish>Research and Innovative Technology Administration's Bureau of Transportation Statistics</publish>
+        </pubinfo>
+        <onlink>http://www.bts.gov/programs/geographic_information_services/</onlink>
+      </citeinfo>
+    </crossref>
+  </idinfo>
+  <dataqual>
+    <logic>All node-link and polygon topological relationships were created and verified using ESRI ArcGIS 10.1</logic>
+    <complete>Complete.</complete>
+    <lineage>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>Research and Innovative Technology Administration's Bureau of Transportation Statistics</origin>
+            <origin>Federal Highway Administration, Office of Planning, Environment, &amp; Realty</origin>
+            <pubdate>20110101</pubdate>
+            <title>MPOs</title>
+            <geoform>vector digital data</geoform>
+            <pubinfo>
+              <pubplace>Washington, DC</pubplace>
+              <publish>Research and Innovative Technology Administration's Bureau of Transportation Statistics (RITA/BTS)</publish>
+            </pubinfo>
+            <onlink>http://www.bts.gov/programs/geographic_information_services/</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>None</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>20110101</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>publication date</srccurr>
+        </srctime>
+        <srccitea>FHWA</srccitea>
+        <srccontr>MPOs, state DOTs, and other government agencies</srccontr>
+      </srcinfo>
+      <procstep>
+        <procdesc>Data for individual MPOs were collected from the MPOs, state DOTs, and other government agencies. Data were received in a variety of geospatial data formats. The Federal Highway Administration and BTS collected the individual MPO files, digitized raster images where necessary and reformatted geospatial data files to fit into a national database. Data collected from the above-listed agencies was not edited or altered in any way. If you have questions about the process steps for particular MPOs or regions, please contact BTS.</procdesc>
+        <procdate>20110101</procdate>
+        <proccont>
+          <cntinfo>
+            <cntorgp>
+              <cntorg>Federal Highway Administration, Office of Planning, Environment, &amp; Realty</cntorg>
+              <cntper>Supin Yoder</cntper>
+            </cntorgp>
+            <cntpos>Travel Demand Forecasting and GIS Specialist</cntpos>
+            <cntaddr>
+              <addrtype>mailing and physical</addrtype>
+              <address>1200 New Jersey Ave. SE</address>
+              <city>Washington</city>
+              <state>DC</state>
+              <postal>20590</postal>
+              <country>US</country>
+            </cntaddr>
+            <cntvoice>708-283-3554</cntvoice>
+            <cntfax>708-283-3501</cntfax>
+            <cntemail>supin.yoder@dot.gov</cntemail>
+          </cntinfo>
+        </proccont>
+      </procstep>
+    </lineage>
+  </dataqual>
+  <spdoinfo>
+    <direct>Vector</direct>
+    <ptvctinf>
+      <sdtsterm>
+        <sdtstype>GT-polygon composed of chains</sdtstype>
+        <ptvctcnt>384</ptvctcnt>
+      </sdtsterm>
+    </ptvctinf>
+  </spdoinfo>
+  <spref>
+    <horizsys>
+      <geograph>
+        <latres>8.983152841195215e-009</latres>
+        <longres>8.983152841195215e-009</longres>
+        <geogunit>Decimal Degrees</geogunit>
+      </geograph>
+      <geodetic>
+        <horizdn>D WGS 1984</horizdn>
+        <ellips>WGS 1984</ellips>
+        <semiaxis>6378137.0</semiaxis>
+        <denflat>298.257223563</denflat>
+      </geodetic>
+    </horizsys>
+  </spref>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>mpo</enttypl>
+        <enttypd>Metropolitan Planning Organization Boundaries</enttypd>
+        <enttypds>RITA/BTS</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>FID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>ESRI</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Shape</attrlabl>
+        <attrdef>Feature geometry.</attrdef>
+        <attrdefs>ESRI</attrdefs>
+        <attrdomv>
+          <udom>Coordinates defining the features.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>ID</attrlabl>
+        <attrdef>An automatically populated ID for the MPO.</attrdef>
+        <attrdefs>FHWA</attrdefs>
+      </attr>
+      <attr>
+        <attrlabl>AREA</attrlabl>
+        <attrdef>Area of the MPO (In square miles)</attrdef>
+        <attrdefs>FHWA</attrdefs>
+      </attr>
+      <attr>
+        <attrlabl>MPO_ID</attrlabl>
+        <attrdef>Unique numerical identifier.</attrdef>
+        <attrdefs>FHWA</attrdefs>
+        <attrdomv>
+          <udom>Character String</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>MPO_NAME</attrlabl>
+        <attrdef>Official MPO name.</attrdef>
+        <attrdefs>RITA/BTS</attrdefs>
+        <attrdomv>
+          <udom>Character String</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>CITY</attrlabl>
+        <attrdef>Physical Address City</attrdef>
+        <attrdefs>RITA/BTS</attrdefs>
+      </attr>
+      <attr>
+        <attrlabl>STATE</attrlabl>
+        <attrdef>Postal Abbreviation</attrdef>
+        <attrdefs>USPS</attrdefs>
+      </attr>
+      <attr>
+        <attrlabl>STFIPS</attrlabl>
+        <attrdef>Primary State FIPS Code</attrdef>
+        <attrdefs>RITA/BTS</attrdefs>
+        <attrdomv>
+          <codesetd>
+            <codesetn>Federal Information Processing Standard- FIPS Pub 6-4</codesetn>
+            <codesets>National Institute for Standards and Technology (NIST)</codesets>
+          </codesetd>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>STATENAM</attrlabl>
+        <attrdef>Full State name</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>DESIGNATED</attrlabl>
+        <attrdef>The year the MPO was designated</attrdef>
+        <attrdefs>FHWA</attrdefs>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>Research and Innovative Technology Administration's Bureau of Transportation Statistics (RITA/BTS)</cntorg>
+          <cntper>Office of Geospatial Information Systems</cntper>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>1200 New Jersey Ave. SE</address>
+          <city>Washington</city>
+          <state>DC</state>
+          <postal>20950</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>202-366-DATA</cntvoice>
+        <cntemail>answers@bts.gov</cntemail>
+      </cntinfo>
+    </distrib>
+    <resdesc>National Transportation Atlas Database (NTAD) 2013</resdesc>
+    <distliab>None</distliab>
+    <stdorder>
+      <digform>
+        <digtinfo>
+          <formname>ESRI Shapefile</formname>
+          <formvern>2013</formvern>
+          <filedec>No compression applied. However, if using digital transfer online option, note access instructions.</filedec>
+          <transize>7.256</transize>
+        </digtinfo>
+        <digtopt>
+          <offoptn>
+            <offmedia>dvd</offmedia>
+            <reccap>
+              <recden>650</recden>
+              <recdenu>megabytes</recdenu>
+            </reccap>
+            <recfmt>ISO 9660</recfmt>
+          </offoptn>
+        </digtopt>
+      </digform>
+      <fees>None</fees>
+      <ordering>Call (202-366-DATA), or E-mail (answers@bts.gov) RITA/BTS to request the National Transportation Atlas Databases (NTAD) 2013 DVD. The NTAD DVD can be ordered from the online bookstore at www.bts.gov. Individual datasets from the NTAD can also be downloaded from the Office of Geospatial Information Systems website at http://www.bts.gov/programs/geographic_information_services/.</ordering>
+    </stdorder>
+    <availabl>
+      <timeinfo>
+        <sngdate>
+          <caldate>20110101</caldate>
+        </sngdate>
+      </timeinfo>
+    </availabl>
+  </distinfo>
+  <metainfo>
+    <metd>20130424</metd>
+    <metc>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>Research and Innovative Technology Administration's Bureau of Tranportation Statistics (RITA/BTS)</cntorg>
+          <cntper>Office of Geospatial Information Systems</cntper>
+        </cntorgp>
+        <cntpos>NTAD 2013</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>1200 New Jersey Ave. SE</address>
+          <city>Washington</city>
+          <state>DC</state>
+          <postal>20590</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>202 366 DATA</cntvoice>
+        <cntemail>answers@bts.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>
