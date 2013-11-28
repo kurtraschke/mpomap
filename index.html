@@ -1,179 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <title>MPO Map</title>
 
-        <!-- Core CSS -->
-        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="assets/typeahead.js/typeahead.js-bootstrap.css" rel="stylesheet" type="text/css"> <!--https://github.com/jharding/typeahead.js-bootstrap.css-->
-        <link href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" rel="stylesheet" type="text/css">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Metropolitan Planning Organization Map</title>
 
-        <!-- Custom styles for this template -->
-        <style>
-            html, body, #map {
-                height: 100%;
-                width: 100%;
-                overflow: hidden;
-            }
-            body {
-                padding-top: 50px;
-            }
-            label {
-                font-weight: normal;
-                margin-bottom: 0px;
-            }
-            .table {
-                margin-bottom: 0px;
-            }
-            #loading {
-                position: absolute;
-                width: 220px;
-                height: 19px;
-                top: 50%;
-                left: 50%;
-                margin: -10px 0 0 -110px;
-                z-index: 20001;
-            }
+    <!-- Core CSS -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/typeahead.js/typeahead.js-bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="assets/leaflet-locatecontrol/L.Control.Locate.css" />
+
+
+
+    <!-- Custom styles for this template -->
+    <style>
+        html,
+        body,
+        #map {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        body {
+            padding-top: 50px;
+        }
+        label {
+            font-weight: normal;
+            margin-bottom: 0px;
+        }
+        .table {
+            margin-bottom: 0px;
+        }
+        #loading {
+            position: absolute;
+            width: 220px;
+            height: 19px;
+            top: 50%;
+            left: 50%;
+            margin: -10px 0 0 -110px;
+            z-index: 20001;
+        }
+        .navbar .navbar-brand {
+            font-weight: bold;
+            font-size: 25px;
+            color: white;
+        }
+        .navbar-collapse.in {
+            overflow-y: hidden;
+        }
+        .tt-dropdown-menu {
+            overflow: auto;
+        }
+        .tt-hint,
+        .tt-query {
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+        .typeahead-header {
+            margin: 0 5px 5px 5px;
+            padding: 3px 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .search-container {
+            width: 250px;
+        }
+        #searchbox {
+            -webkit-border-top-left-radius: 4px;
+            -webkit-border-bottom-left-radius: 4px;
+            -moz-border-top-left-radius: 4px;
+            -moz-border-bottom-left-radius: 4px;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+        .leaflet-popup-content {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        .leaflet-popup-content-wrapper {
+            border-radius: 5px;
+        }
+        @media (max-width: 992px) {
             .navbar .navbar-brand {
-                font-weight: bold;
-                font-size: 25px;
-                color: white;
-            }
-            .navbar-collapse.in {
-                overflow-y: hidden;
-            }
-            .tt-dropdown-menu {
-                overflow: auto;
-            }
-            .tt-hint, .tt-query {
-                display: block;
-                width: 100%;
-                height: 34px;
-                padding: 6px 12px;
-                font-size: 14px;
-                border-radius: 4px;
-            }
-            .typeahead-header {
-                margin: 0 5px 5px 5px;
-                padding: 3px 0;
-                border-bottom: 1px solid #ccc;
+                font-size: 18px;
+                float: left;
             }
             .search-container {
-                width: 250px;
+                width: 150px;
             }
-            #searchbox {
-                -webkit-border-top-left-radius: 4px;
-                -webkit-border-bottom-left-radius: 4px;
-                -moz-border-top-left-radius: 4px;
-                -moz-border-bottom-left-radius: 4px;
-                border-top-left-radius: 4px;
-                border-bottom-left-radius: 4px;
+            .leaflet-control-attribution {
+                display: none;
             }
-            .leaflet-popup-content {
-                margin-top: 5px;
-                margin-bottom: 5px;
-                margin-left: 5px;
-                margin-right: 5px;
+        }
+        @media (max-width: 767px) {
+            .search-container {
+                width: 100%;
             }
-            .leaflet-popup-content-wrapper {
-                border-radius: 5px;
+        }
+        /* Print Handling */
+        @media print {
+            .navbar {
+                display: none !important;
             }
-            @media (max-width: 992px) {
-                .navbar .navbar-brand {
-                    font-size: 18px;
-                    float: left;
-                }
-                .search-container {
-                    width: 150px;
-                }
-                .leaflet-control-attribution {
-                    display: none;
-                }
+            .leaflet-control-container {
+                display: none !important;
             }
-            @media (max-width: 767px){
-                .search-container {
-                    width: 100%;
-                }
-            }
-            /* Print Handling */
-            @media print {
-                .navbar {
-                    display: none !important;
-                }
-                .leaflet-control-container {
-                    display: none !important;
-                }
-            }
-        </style>
+        }
+    </style>
 
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
             <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
             <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
         <![endif]-->
-    </head>
+</head>
 
-    <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">MPO Map</a>
-            </div>
-            <div class="navbar-collapse collapse" id="navbar-collapse">
-                <form class="navbar-form navbar-right">
-                    <div class="input-group search-container">
-                        <input id="searchbox" type="text" class="form-control" placeholder="Search">
-                        <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                    </div>
-                </form>
-                <ul class="nav navbar-nav">
-                    <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" onclick="$('#aboutModal').modal('show'); return false;"><i class="fa fa-question-circle" style="color: white"></i>&nbsp;&nbsp;About</a></li>
-                    <li><a href="https://github.com/kurtraschke/mpomap" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-github-alt" style="color: white"></i>&nbsp;&nbsp;Fork me on GitHub</a></li>
-                </ul>
-            </div><!--/.navbar-collapse -->
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Metropolitan Planning Organization Map</a>
         </div>
+        <div class="navbar-collapse collapse" id="navbar-collapse">
+            <form class="navbar-form navbar-right">
+                <div class="input-group search-container">
+                    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+                    <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                </div>
+            </form>
+            <ul class="nav navbar-nav">
+                <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" onclick="$('#aboutModal').modal('show'); return false;"><i class="fa fa-question-circle" style="color: white"></i>&nbsp;&nbsp;About</a>
+                </li>
+                <li><a href="https://github.com/kurtraschke/mpomap" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-github-alt" style="color: white"></i>&nbsp;&nbsp;Fork me on GitHub</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.navbar-collapse -->
+    </div>
 
-        <div id="map"></div>
-        <div id="loading" style="display:block;">
-            <div class="loading-indicator">
-                <div class="progress progress-striped active">
-                    <div class="progress-bar progress-bar-info" style="width: 100%"></div>
+    <div id="map"></div>
+    <div id="loading" style="display:block;">
+        <div class="loading-indicator">
+            <div class="progress progress-striped active">
+                <div class="progress-bar progress-bar-info" style="width: 100%"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="aboutModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Metropolitan Planning Organization Map</h4>
+                </div>
+                <div class="modal-body">
+                    <p>This is an interactive map of <a href="https://en.wikipedia.org/wiki/Metropolitan_planning_organization">Metropolitan Planning Organizations</a> in the United States.</p>
+                    <p>Here's what you can do with this map:</p>
+                    <ul>
+                        <li>Click within an MPO's boundaries to identify the MPO and get details.</li>
+                        <li>Search for MPOs by name.</li>
+                        <li>Search for an address or place.</li>
+                        <li>Zoom to your current location and identify the MPO there.</li>
+                    </ul>
                 </div>
             </div>
+            <!-- /.modal-content -->
         </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 
-        <div class="modal fade" id="aboutModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">MPO Map</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>About text goes here...</p>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/typeahead.js/typeahead.min.js"></script>
+    <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+    <script type="text/javascript" src="assets/catiline.js"></script>
+    <script type="text/javascript" src="assets/shp.js"></script>
+    <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
+    <script type="text/javascript" src="assets/leaflet-locatecontrol/L.Control.Locate.js"></script>
+    <script type="text/javascript" src="mpomap.js"></script>
+</body>
 
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="assets/typeahead.js/typeahead.min.js"></script> <!--https://github.com/twitter/typeahead.js/-->
-        <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
-        <script type="text/javascript" src="assets/catiline.js"></script>
-        <script type="text/javascript" src="assets/shp.js"></script>
-        <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
-        <script type="text/javascript" src="mpomap.js"></script>
-    </body>
 </html>
