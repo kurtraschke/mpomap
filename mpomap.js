@@ -1,8 +1,40 @@
-var map, mpoSearch = [];
+var map, mpoSearch = [],
+    mpoLayer;
 
 var baseLayer = new L.StamenTileLayer("toner-lite");
 
-var mpoLayer = new L.geoJson(null, {
+function highlightFeature(e) {
+    var layer = e.target;
+
+    layer.setStyle({
+        weight: 5
+    });
+
+    if (!L.Browser.ie && !L.Browser.opera) {
+        layer.bringToFront();
+    }
+}
+
+function resetHighlight(e) {
+    mpoLayer.resetStyle(e.target);
+}
+
+function zoomToFeature(e) {
+    map.fitBounds(e.target.getBounds());
+    var feature = e.target.feature;
+    map.openPopup("<table class='table table-striped table-bordered table-condensed'>" +
+        "<tr><th>Name</th><td><a href='http://www.planning.dot.gov/Summary.asp?ID=" + feature.properties.MPO_ID + "' target='_blank'>" + feature.properties.MPO_NAME + "</a></td></tr>" +
+        "<tr><th>Designated</th><td>" + feature.properties.DESIGNATED + "</td></tr>" +
+        "<tr><th>City</th><td>" + feature.properties.CITY + "</td></tr>" +
+        "<tr><th>State</th><td>" + feature.properties.STATE + "</td></tr>" +
+        "<tr><th>Area</th><td>" + feature.properties.AREA + " mi<sup>2</sup></td></tr>" +
+        "<table>",
+        e.target.getBounds().getCenter(), {
+            closeButton: false
+        });
+}
+
+mpoLayer = new L.geoJson(null, {
     style: function (feature) {
         return {
             "color": "#000000",
@@ -11,20 +43,19 @@ var mpoLayer = new L.geoJson(null, {
         };
     },
     onEachFeature: function (feature, layer) {
+        layer.on({
+            mouseover: highlightFeature,
+            mouseout: resetHighlight,
+            click: zoomToFeature
+        });
         if (feature.properties) {
-            var content = "<table class='table table-striped table-bordered table-condensed'>" +
-                "<tr><th>Name</th><td><a href='http://www.planning.dot.gov/Summary.asp?ID=" + feature.properties.MPO_ID + "' target='_blank'>" + feature.properties.MPO_NAME + "</a></td></tr>" +
-                "<tr><th>Designated</th><td>" + feature.properties.DESIGNATED + "</td></tr>" +
-                "<tr><th>City</th><td>" + feature.properties.CITY + "</td></tr>" +
-                "<tr><th>State</th><td>" + feature.properties.STATE + "</td></tr>" +
-                "<tr><th>Area</th><td>" + feature.properties.AREA + " mi<sup>2</sup></td></tr>" +
-                "<table>";
-            layer.bindPopup(content, {
-                closeButton: false
-            });
+            var p = feature.properties;
+            var tokens = p.MPO_NAME.split(' ');
+            tokens.push(p.CITY);
+            tokens.push(p.STATE);
             mpoSearch.push({
-                value: layer.feature.properties.MPO_NAME,
-                tokens: layer.feature.properties.MPO_NAME.split(' '),
+                value: p.MPO_NAME,
+                tokens: tokens,
                 id: L.stamp(layer),
                 bounds: layer.getBounds()
             });
@@ -32,8 +63,6 @@ var mpoLayer = new L.geoJson(null, {
     }
 
 });
-
-
 
 map = L.map("map", {
     zoom: 4,
@@ -47,7 +76,11 @@ map.attributionControl.addAttribution('Nominatim Search Courtesy of <a href="htt
 
 var scaleControl = L.control.scale();
 
-L.control.locate({locateOptions: {maxZoom: 12}}).addTo(map);
+L.control.locate({
+    locateOptions: {
+        maxZoom: 12
+    }
+}).addTo(map);
 
 // Larger screens get scale control and expanded layer control
 if (document.body.clientWidth <= 767) {
@@ -63,14 +96,10 @@ $("#searchbox").click(function () {
     $(this).select();
 });
 
-
 var worker = cw(function (data, cb) {
     importScripts('assets/shp.js');
     shp(data).then(cb);
 });
-
-
-
 
 worker.data(cw.makeUrl("data/mpo/mpo")).then(function (data) {
     mpoLayer.addData(data);
@@ -80,11 +109,9 @@ worker.data(cw.makeUrl("data/mpo/mpo")).then(function (data) {
             name: "MPOs",
             local: mpoSearch,
             minLength: 2,
+            limit: 10,
             header: "<h4 class='typeahead-header'>MPOs</h4>"
-        },
-
-
-        {
+        }, {
             name: "Places",
             remote: {
                 dataType: "jsonp",
